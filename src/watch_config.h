@@ -12,8 +12,8 @@
 
 #define FONT_BT_SYSTEM_NAME FONT_KEY_GOTHIC_18_BOLD
 //#define NO_BLUETOOTH /* Do not show bluetooth disconnect status */
-#define NO_BATTERY /* Do not show battery status */
-#define NO_DATE /* Do not show date */
+//#define NO_BATTERY /* Do not show battery status */
+//#define NO_DATE /* Do not show date */
 
 #define BG_IMAGE RESOURCE_ID_IMAGE_SPAWN
 //#define BG_IMAGE_GRECT GRectZero
