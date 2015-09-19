@@ -1,0 +1,32 @@
+{
+    "appKeys": {
+        "KEY_BACKGROUND_COLOR": 2,
+        "KEY_TIME_COLOR": 0,
+        "KEY_VIBRATE_ON_DISCONNECT": 1
+    },
+    "capabilities": [
+        "configurable"
+    ],
+    "companyName": "clach04",
+    "longName": "Spawn",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/spawn_logo_144x144.png",
+                "name": "IMAGE_SPAWN",
+                "type": "png"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "Spawn",
+    "targetPlatforms": [
+        "basalt"
+    ],
+    "uuid": "f6990b6a-d9be-4f4d-a853-f258a25c0f90",
+    "versionLabel": "0.1",
+    "watchapp": {
+        "watchface": true
+    }
+}
