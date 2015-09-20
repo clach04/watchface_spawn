@@ -13,7 +13,7 @@
     "resources": {
         "media": [
             {
-                "file": "images/spawn_logo_144x144.png",
+                "file": "images/spawn_logo_132x132.png",
                 "name": "IMAGE_SPAWN",
                 "type": "png"
             }
