@@ -7,4 +7,4 @@ Experiments with different options.
 See https://github.com/clach04/watchface_spawn/wiki for screenshots.
 
 
-![basic watchface example](wiki/images/basic_watchface.png)
+![basic watchface example](https://raw.githubusercontent.com/wiki/clach04/watchface_spawn/images/basic_watchface.png)
