@@ -8,14 +8,36 @@
 #define KEY_VIBRATE_ON_DISCONNECT 1
 #define KEY_BACKGROUND_COLOR 2
 
+#ifndef USE_MAX_MESSAGE_SIZE
+    /*
+    ** framework expects ONLY the three items above
+    ** pebble-js-app.js sanitizes values and
+    ** max length is about 90 bytes incoming, e.g.:
+    **    {"KEY_TIME_COLOR":16777215,"KEY_BACKGROUND_COLOR":16777215,"KEY_VIBRATE_ON_DISCONNECT":0}
+    ** Setting accurate max sizes avoids warnings:
+    **  [INFO] essage_outbox.c:49: app_message_open() called with app_message_outbox_size_maximum().
+    **  [INFO] essage_outbox.c:52: This consumes 8200 bytes of heap memory, potentially more in the future!
+    **  [INFO] message_inbox.c:13: app_message_open() called with app_message_inbox_size_maximum().
+    **  [INFO] message_inbox.c:16: This consumes 8200 bytes of heap memory, potentially more in the future!    
+    */
+    #define MAX_MESSAGE_SIZES
+    #define MAX_MESSAGE_SIZE_IN 200
+    #define MAX_MESSAGE_SIZE_OUT 0
+#endif
+
 #ifndef BLUETOOTH_DISCONNECTED_STR
 #define BLUETOOTH_DISCONNECTED_STR "BT Disconnected"
 #endif /* BLUETOOTH_DISCONNECTED_STR */
 
 #ifndef DATE_FMT_STR
+/*
+** DATE_FMT_STR format for date, passed to strftime()
+** https://developer.getpebble.com/docs/c/Standard_C/Time/#strftime
+** See http://www.gnu.org/software/emacs/manual/html_node/elisp/Time-Parsing.html for more details
+*/
 #define DATE_FMT_STR "%a, %d %b"  /* TODO review %d for day */
+#define MAX_DATE_STR "Thu, 00 Aug"  /* if custom version of DATE_FMT_STR is set, MAX_DATE_STR  needs to be updated too */
 #endif /* DATE_FMT_STR */
-#define MAX_DATE_STR "Thu, 00 Aug"
 
 #define MAX_TIME_STR "00:00"
 
@@ -51,6 +73,10 @@
 #define BAT_ALIGN GTextAlignmentLeft
 #endif /* BAT_ALIGN */
 
+#ifndef DATE_ALIGN
+#define DATE_ALIGN GTextAlignmentRight
+#endif /* TIME_ALIGN */
+
 #ifndef TIME_ALIGN
 #define TIME_ALIGN GTextAlignmentCenter
 #endif /* TIME_ALIGN */
@@ -67,6 +93,10 @@
 #define TICK_HANDLER tick_handler
 #endif /* TICK_HANDLER */
 
+#ifndef DEBUG_TICK_HANDLER
+#define DEBUG_TICK_HANDLER debug_tick_handler
+#endif /* DEBUG_TICK_HANDLER */
+
 #ifndef MAIN_WINDOW_LOAD
 #define MAIN_WINDOW_LOAD main_window_load
 #endif /* MAIN_WINDOW_LOAD */
@@ -75,16 +105,15 @@
 #define MAIN_WINDOW_UNLOAD main_window_unload
 #endif /* MAIN_WINDOW_UNLOAD */
 
-#ifndef BG_IMAGE_GRECT
-#define BG_IMAGE_GRECT GRectZero
-#endif /* BG_IMAGE_GRECT */
-
-
 extern Window    *main_window;
 extern TextLayer *time_layer;
 extern TextLayer *date_layer;
+#ifndef DRAW_BATTERY
 extern TextLayer *battery_layer;
-extern TextLayer *bluetooth_layer;
+#else
+extern Layer *battery_layer;
+#endif /* DRAW_BATTERY */
+extern TextLayer *bluetooth_tlayer;
 
 extern GFont       time_font;
 extern BitmapLayer *background_layer;
@@ -115,3 +144,26 @@ extern void tick_handler(struct tm *tick_time, TimeUnits units_changed);
 extern void in_recv_handler(DictionaryIterator *iterator, void *context);
 extern void init();
 extern void deinit();
+
+#if defined(PBL_HEALTH)
+extern TextLayer *health_tlayer;
+
+#ifndef HEALTH_ALIGN
+    #define HEALTH_ALIGN GTextAlignmentCenter
+#endif
+
+#ifndef HEALTH_FMT_STR
+    #define HEALTH_FMT_STR "%d steps today"
+    #define MAX_HEALTH_STR "123456 steps today"   /* update to match HEALTH_FMT_STR */
+#endif /* HEALTH_FMT_STR */
+
+#ifndef HEALTH_POS
+    #ifndef USE_HEALTH
+        #define HEALTH_POS GRect(50, 50, 144, 168)
+    #endif /* USE_HEALTH */
+#endif /* HEALTH_POS */
+
+void setup_health(Window *window);
+void update_health();
+void cleanup_health();
+#endif /* PBL_HEALTH */
