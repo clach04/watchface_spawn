@@ -15,7 +15,7 @@
 
 //#define NO_BATTERY /* Do not show battery status */
 #define BAT_FMT_STR "%d%%"
-//#define DRAW_BATTERY
+#define DRAW_BATTERY
 
 #define DATE_FMT_STR "%a\n%b\n%d"  /* TODO review %d for day */
 #define MAX_DATE_STR "Thu\n00\nAug"  /* if custom version of DATE_FMT_STR is set, MAX_DATE_STR  needs to be updated too */
