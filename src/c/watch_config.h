@@ -26,15 +26,18 @@
 #define IMAGE_RES_X 120  /* NOTE if image res changes - this needs to change too! */
 #define IMAGE_RES_Y 120  /* NOTE if image res changes - this needs to change too! */
 /* Image shifted down from top of screen, centered horizontally */
-#define BG_IMAGE_GRECT GRect((144 - IMAGE_RES_X) / 2, 10,  IMAGE_RES_X, IMAGE_RES_Y)
+#define BG_IMAGE_GRECT GRect((144 - IMAGE_RES_X) / 2, 168 - IMAGE_RES_Y,  IMAGE_RES_X, IMAGE_RES_Y)
 
 #define CLOCK_POS GRect(0, -15, 144, 168) /* top of screen for FONT_KEY_ROBOTO_BOLD_SUBSET_49 */
 
-#define BT_POS GRect(0, 50, 144, 168) /* probably taller than really needed */
+#define BT_POS GRect(0, 80, 144, 168) /* probably taller than really needed */
 
-#define DATE_POS GRect(0, -5, 144, 168) /* probably taller than really needed */
+//#define DATE_POS GRect(0, -5, 144, 168) /* probably taller than really needed */
+  #define DATE_POS GRect(0, 30, 144, 168) /* probably taller than really needed */
 #ifdef DRAW_BATTERY
-    #define BAT_POS GRect(8, 8, 144, 168)
+  //#define BAT_POS GRect(8, 8, 144, 168)
+  //#define BAT_POS GRect(8, 38, 144, 168)
+    #define BAT_POS GRect(8, 43, 144, 168)
 #else
     #define BAT_POS GRect(8, 0, 144, 168) /* probably taller than really needed */
 #endif /* DRAW_BATTERY */
