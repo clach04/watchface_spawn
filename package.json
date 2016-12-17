@@ -10,7 +10,7 @@
             "configurable"
         ],
         "displayName": "Spawn",
-        "enableMultiJS": false,
+        "enableMultiJS": true,
         "messageKeys": [
             "TIME_COLOR",
             "VIBRATE_ON_DISCONNECT",
