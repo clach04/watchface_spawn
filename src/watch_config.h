@@ -12,37 +12,35 @@
 
 #define FONT_BT_SYSTEM_NAME FONT_KEY_GOTHIC_18_BOLD
 //#define NO_BLUETOOTH /* Do not show bluetooth disconnect status */
-#define NO_BATTERY /* Do not show battery status */
-#define NO_DATE /* Do not show date */
+
+//#define NO_BATTERY /* Do not show battery status */
+#define BAT_FMT_STR "%d%%"
+#define DRAW_BATTERY
+
+#define DATE_FMT_STR "%a\n%b\n%d"  /* TODO review %d for day */
+#define MAX_DATE_STR "Thu\n00\nAug"  /* if custom version of DATE_FMT_STR is set, MAX_DATE_STR  needs to be updated too */
+//#define NO_DATE
 
 #define BG_IMAGE RESOURCE_ID_IMAGE_SPAWN
-//#define BG_IMAGE_GRECT GRectZero
-#define BG_IMAGE_GRECT GRect((144 - 132) / 2, 0, 132, 132)  // use same size as image. On Aplite can determine this at runtime but not Basalt
+/* PBL_RECT 144x168*/
+#define IMAGE_RES_X 120  /* NOTE if image res changes - this needs to change too! */
+#define IMAGE_RES_Y 120  /* NOTE if image res changes - this needs to change too! */
+/* Image shifted down from top of screen, centered horizontally */
+#define BG_IMAGE_GRECT GRect((144 - IMAGE_RES_X) / 2, 10,  IMAGE_RES_X, IMAGE_RES_Y)
 
-#ifdef  NO_DATE
-    #define CLOCK_POS GRect(0, 118, 144, 168) /* bottom of screen for FONT_KEY_ROBOTO_BOLD_SUBSET_49 with one pixel border on bottom */
+#define CLOCK_POS GRect(0, 118, 144, 168) /* bottom of screen for FONT_KEY_ROBOTO_BOLD_SUBSET_49 with one pixel border on bottom */
 
-    //#define FONT_SYSTEM_NAME FONT_KEY_BITHAM_42_BOLD
-    //#define CLOCK_POS GRect(0, 125, 144, 168) /* bottom of screen for FONT_KEY_BITHAM_42_BOLD  with one pixel border on bottom */
-
-    //#define FONT_SYSTEM_NAME FONT_-KEY_ROBOTO_CONDENSED_21
-    //#define CLOCK_POS GRect(0, 142, 144, 168) /* bottom of screen for FONT_KEY_ROBOTO_CONDENSED_21 */
-
-    //#define FONT_SYSTEM_NAME FONT_KEY_GOTHIC_28_BOLD
-    //#define CLOCK_POS GRect(0, 138, 144, 168) /* bottom of screen for FONT_KEY_GOTHIC_28_BOLD */
-
-    //#define FONT_SYSTEM_NAME FONT_KEY_BITHAM_30_BLACK /* works well if 144x144 image is used above, little wasted space */
-    //#define CLOCK_POS GRect(0, 136, 144, 168) /* bottom of screen for FONT_KEY_BITHAM_30_BLACK */
-#else
-//#define CLOCK_POS GRect(0, -10, 144, 168) /* Top of screen */
-//#define CLOCK_POS GRect(0, 10, 144, 168) /* near top of screen */
-//#define CLOCK_POS GRect(0, 52, 144, 168) /* Center of screen */
-//#define CLOCK_POS GRect(0, 58, 144, 168) /* Center logo if logo is top aligned */
-#define CLOCK_POS GRect(0, 75, 144, 168) /* if logo is top aligned */
-#endif
-
-//#define BT_POS GRect(0, 40, 144, 168) /* probably taller than really needed */
 #define BT_POS GRect(0, 50, 144, 168) /* probably taller than really needed */
-#define DATE_POS GRect(0, 140, 144, 168) /* probably taller than really needed */
-#define BAT_POS GRect(0, 140, 144, 168) /* probably taller than really needed */
 
+#define DATE_POS GRect(0, -5, 144, 168) /* probably taller than really needed */
+#ifdef DRAW_BATTERY
+    #define BAT_POS GRect(8, 8, 144, 168)
+#else
+    #define BAT_POS GRect(8, 0, 144, 168) /* probably taller than really needed */
+#endif /* DRAW_BATTERY */
+
+
+/* for screen shots and font testing
+#define DEBUG_TIME
+#define DEBUG_TIME_SCREENSHOT
+ */

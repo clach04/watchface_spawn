@@ -8,13 +8,21 @@
         "configurable"
     ],
     "companyName": "clach04",
+    "enableMultiJS": false,
     "longName": "Spawn",
     "projectType": "native",
     "resources": {
         "media": [
             {
-                "file": "images/spawn_logo_132x132.png",
+                "file": "images/spawn_logo_120x120.png",
                 "name": "IMAGE_SPAWN",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/spawn_logo_28x28.png",
+                "menuIcon": true,
+                "name": "IMAGE_ICON",
                 "type": "png"
             }
         ]
