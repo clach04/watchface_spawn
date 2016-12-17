@@ -28,7 +28,7 @@
 /* Image shifted down from top of screen, centered horizontally */
 #define BG_IMAGE_GRECT GRect((144 - IMAGE_RES_X) / 2, 10,  IMAGE_RES_X, IMAGE_RES_Y)
 
-#define CLOCK_POS GRect(0, 118, 144, 168) /* bottom of screen for FONT_KEY_ROBOTO_BOLD_SUBSET_49 with one pixel border on bottom */
+#define CLOCK_POS GRect(0, -15, 144, 168) /* top of screen for FONT_KEY_ROBOTO_BOLD_SUBSET_49 */
 
 #define BT_POS GRect(0, 50, 144, 168) /* probably taller than really needed */
 
