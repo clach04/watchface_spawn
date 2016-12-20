@@ -15,7 +15,7 @@
 
 //#define NO_BATTERY /* Do not show battery status */
 #define BAT_FMT_STR "%d%%"
-#define DRAW_BATTERY
+//#define DRAW_BATTERY
 
 #define DATE_FMT_STR "%a\n%b\n%d"  /* TODO review %d for day */
 #define MAX_DATE_STR "Thu\n00\nAug"  /* if custom version of DATE_FMT_STR is set, MAX_DATE_STR  needs to be updated too */
@@ -32,14 +32,11 @@
 
 #define BT_POS GRect(0, 80, 144, 168) /* probably taller than really needed */
 
-//#define DATE_POS GRect(0, -5, 144, 168) /* probably taller than really needed */
   #define DATE_POS GRect(0, 30, 144, 168) /* probably taller than really needed */
 #ifdef DRAW_BATTERY
-  //#define BAT_POS GRect(8, 8, 144, 168)
-  //#define BAT_POS GRect(8, 38, 144, 168)
     #define BAT_POS GRect(8, 43, 144, 168)
 #else
-    #define BAT_POS GRect(8, 0, 144, 168) /* probably taller than really needed */
+    #define BAT_POS GRect(8, 30, 144, 168) /* probably taller than really needed */
 #endif /* DRAW_BATTERY */
 
 
