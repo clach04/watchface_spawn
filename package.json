@@ -4,12 +4,12 @@
         "pebble-clay": "^1.0.3"
     },
     "keywords": [],
-    "name": "spawn",
+    "name": "spawn-white",
     "pebble": {
         "capabilities": [
             "configurable"
         ],
-        "displayName": "Spawn",
+        "displayName": "Spawn White",
         "enableMultiJS": true,
         "messageKeys": [
             "TIME_COLOR",
@@ -46,7 +46,7 @@
             "basalt",
             "diorite"
         ],
-        "uuid": "f6990b6a-d9be-4f4d-a853-f258a25c0f90",
+        "uuid": "57af9908-3076-459b-865c-fcf5e328160e",
         "watchapp": {
             "watchface": true
         }
