@@ -7,8 +7,8 @@
 #undef DEBUG_TIME
 
 /* White background */
-#define DEFAULT_TIME_COLOR COLOR_FALLBACK(GColorRed, GColorWhite)
-#define DEFAULT_BACKGROUND_COLOR COLOR_FALLBACK(GColorWhite, GColorBlack)
+#define DEFAULT_TIME_COLOR COLOR_FALLBACK(GColorRed, GColorBlack)
+#define DEFAULT_BACKGROUND_COLOR GColorWhite
 
 #define FONT_BT_SYSTEM_NAME FONT_KEY_GOTHIC_18_BOLD
 //#define NO_BLUETOOTH /* Do not show bluetooth disconnect status */

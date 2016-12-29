@@ -18,6 +18,7 @@ module.exports = [
             {
                 "type": "color",
                 "label": "Background",
+                "allowGray": true,
                 "messageKey": "BACKGROUND_COLOR",
                 "defaultValue": "000000"
             },
